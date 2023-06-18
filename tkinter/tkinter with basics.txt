@@ -1,0 +1,49 @@
+>>>command used in tkinter is  ("1.0" , tk,END)   USED TO DELTE AND  (1.0)  in this 1 is  line   and 0  is charcter   tk.end was the last line last charcater,
+widgtes
+1> label
+2>button
+3> entry
+
+THER ARE TWO DIGITS IV TK
+1> CLASSIC WIDGETS        ACCESSED BY tk
+2>THEME WIDGETS             acceessed by ttk
+
+aRGB >>>  ALLPHA RGB  HOW MUCH TRANSPARENCY DETERMINED BY ALPHA 
+
+
+# win.geometry("{}x{}+{}+{}".format(width,height,x,y))
+# win.resizable(False,True)
+win.resizable(False,False)
+win.attributes('-alpha',0.6)   #  use  for transparency  by opaque
+win.attributes('-topmost',True) # THIS USED FOR MAKINMG the window at topmost in stack
+
+
+MODAL  WINDOW>>>>
+
+WINDOW DISSAPERA HOTI AGE PAHLLA USKO MUQAMMAL NHII KARNEGI DUSRI KOI P[ROPERTY ISTAMAL NHI  HOGI >
+
+LABEL  >>  TO DISPLAY A LABEL NAME 
+ENTERY    >> TAKE SINGLE LINE ENTRY
+TEXT		>> TAKES MULTIPKE LINE ENTRY
+BUTTON 	>>					
+CHECK BOX
+RADIOO BUTTON
+LIST BOX
+SCROLL BAR
+
+
+geometry methds
+1>grif
+2> place				>>place methiod id not reponsive
+3>pack
+
+
+FRAME >> CONTAINER MULTIPLE COMPONENTS I OF GROUPS 
+
+used to reduce blurness in text .
+from ctypes import windll   # using window files to remove blurness
+windll.shscore.SetprocessorDpiAwareness(1)
+
+STICKY >>
+used to  place the labels and button through grid function
+

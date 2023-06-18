@@ -1,0 +1,41 @@
+DATA BASE >>;  ANY DATA WHICB AS CONSISTENCY 
+
+
+REDUNDANCY >. IS CALLED DUPLICATION IN DARA 
+
+DATABASE TYPES>
+RELATIONAL
+O ORIENTD
+HERARCHICAL
+
+
+>0____o<   many to many function	
+
+BDMS
+
+my sql
+ms sql
+SQLITE    Lite version og sql >> smaller in size 
+oraclw
+mongo db
+postgrade
+
+SQL structures query language
+
+
+CRUD >>OPERATIONS
+CREATE
+READ
+UPDATE
+DELETE
+
+
+USING BY SQL
+
+
+sql in python
+
+import sqlite3 as sql
+   its helps to connecr data and create data
+
+

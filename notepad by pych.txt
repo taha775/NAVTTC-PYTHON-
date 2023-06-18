@@ -1,0 +1,19 @@
+cascading >> placing something one after another
+
+CLICK_OPEN
+1>FRIST WE OPEN
+READ
+READ ALL TEXT IN EDITOR
+CLOSE
+
+
+CHECKING INN DIRECTORY
+
+dri  a*a.dll
+
+dir *.??                  ? menas only one extension
+
+local variables>> placed at particular area
+
+global variables.>> placed any where
+

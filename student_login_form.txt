@@ -1,0 +1,70 @@
+import sqlite3 as sql
+connection = sql.connect('taha2.db')
+connection.execute("""CREATE TABLE  IF NOT EXISTS student_record(
+student_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,user_name TEXT NOT NULL,
+password TEXT NOT NULL,
+gmail TEXT NOT NULL
+
+)
+""")
+#inserting data
+
+
+
+connection.execute("INSERT INTO student_record (user_name,password,gmail) VALUES ('TAHA','ALI123','tahagmail') ")
+connection.execute("INSERT INTO student_record (user_name,password,gmail) VALUES ('tayyab','tariq123','tayyyabgmail')")
+connection.execute("INSERT INTO student_record (user_name,password,gmail) VALUES ('faseeeh','hyder123','faseehgmail')")
+
+connection.commit()  #  to add the data in the field
+connection.close()   # to close the database
+
+
+
+
+
+
+from tkinter import *
+win= Tk()
+win.geometry("350x250")
+win.title("tahadatabase")
+
+def click():
+    uname =user_name.get()
+    pasw =password.get()
+    gma  = gmail.get()
+
+
+    if uname =="" or pasw== "" or gma =="":
+        message.set("fill the form below")
+
+    else:
+        connection = sql.connect('taha2.db')
+        cursor = connection.execute("SELECT  *  FROM student_record WHERE user_name  = '%s' and  password = '%s'  and  gmail = '%s' " %(uname,pasw,gma))
+
+    if cursor.fetchone():
+        message.set("login succesful")
+    else:
+        message.set("username or password or gmail   invalid")
+
+user_name  = StringVar()
+password  = StringVar()
+gmail = StringVar()
+
+
+message = StringVar()
+
+Label(win,text='username',bg='blue',fg='red', font=("Arial", 12,"bold")).place(x =20,y= 40)
+Entry(win,textvariable=user_name,bg='green',fg='yellow',font=("Arial", 12,"bold")).place(x =120,y= 40)
+
+Label(win,text='password',bg='blue',fg='red', font=("Arial", 12,"bold")).place(x =20,y= 80)
+Entry(win,textvariable=password,show='*',bg='green',fg='yellow',font=("Arial", 12,"bold")).place(x =120,y= 80)
+
+Label(win,text='gmail',bg='blue',fg='red', font=("Arial", 12,"bold")).place(x =20,y= 120)
+Entry(win,textvariable=gmail,bg='green',fg='yellow',font=("Arial", 12,"bold")).place(x =120,y= 120)
+
+Button(win,text='login',bg ='red',fg='black',font=("Arial",12,"bold"),command=click ).place(x = 180, y=180)
+Label(win,textvariable=message,bg='red',fg='black').place(x =125, y=152)
+
+
+
+win.mainloop()

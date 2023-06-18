@@ -1,0 +1,143 @@
+import tkinter as tk
+from tkinter import *
+from tkinter.font import *
+
+class Calculator:
+
+    def __init__(self):
+        self.window = Tk()
+        self.window.title('Calculator')
+        self.window.geometry('400x600')
+
+        self.window_background = '#fbfbfb'
+        self.btn_color_primary = "#f5f5f5"
+        self.btn_color_secondary1 = "#d5e6ff"
+        self.btn_color_secondary2 = "#ffd5d5"
+
+        self.window.configure(bg=self.window_background)
+
+        for i in range(0,4):
+            self.window.columnconfigure(i,weight=1)
+
+        for i in range(0,6):
+            self.window.rowconfigure(i,weight=1)
+
+        self.font_display = Font(family='Consolas', size=50, weight='bold')
+        self.font_digit = Font(family='Calibri', size=25, weight='bold')
+
+        self.lblDisplay = Label(self.window, text='0', relief=GROOVE, padx=15, font=self.font_display, anchor='e', bg='white')
+        self.btn0 = Button(self.window, text='0', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn1 = Button(self.window, text='1', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn2 = Button(self.window, text='2', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn3 = Button(self.window, text='3', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn4 = Button(self.window, text='4', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn5 = Button(self.window, text='5', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn6 = Button(self.window, text='6', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn7 = Button(self.window, text='7', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn8 = Button(self.window, text='8', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btn9 = Button(self.window, text='9', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+
+        self.btnAdd = Button(self.window, text='+', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btnSub = Button(self.window, text='-', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btnMul = Button(self.window, text='x', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btnDiv = Button(self.window, text='÷', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+        self.btnEq = Button(self.window, text='=', relief=GROOVE, font=self.font_digit, bg=self.btn_color_secondary1)
+        self.btnDot = Button(self.window, text='.', relief=GROOVE, font=self.font_digit, bg=self.btn_color_primary)
+
+        self.btnAC = Button(self.window, text='A', relief=GROOVE, font=self.font_digit, bg=self.btn_color_secondary2)
+        self.btnC = Button(self.window, text='C', relief=GROOVE, font=self.font_digit, bg=self.btn_color_secondary2)
+
+        self.lblDisplay.grid(row=0, column=0, columnspan=4, sticky=tk.NSEW,  padx=5, pady=15)
+
+        self.btnMul.grid(row=1, column=0, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnDiv.grid(row=1, column=1, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnC.grid(row=1, column=2, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnAC.grid(row=1, column=3, sticky=tk.NSEW, padx=5, pady=5)
+
+        self.btn7.grid(row=2, column=0, sticky=tk.NSEW, padx=5, pady=5)
+        self.btn8.grid(row=2, column=1, sticky=tk.NSEW, padx=5, pady=5)
+        self.btn9.grid(row=2, column=2, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnAdd.grid(row=2, column=3, sticky=tk.NSEW, padx=5, pady=5)
+
+        self.btn4.grid(row=3, column=0, sticky=tk.NSEW, padx=5, pady=5)
+        self.btn5.grid(row=3, column=1, sticky=tk.NSEW, padx=5, pady=5)
+        self.btn6.grid(row=3, column=2, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnSub.grid(row=3, column=3, sticky=tk.NSEW, padx=5, pady=5)
+
+        self.btn1.grid(row=4, column=0, sticky=tk.NSEW, padx=5, pady=5)
+        self.btn2.grid(row=4, column=1, sticky=tk.NSEW, padx=5, pady=5)
+        self.btn3.grid(row=4, column=2, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnEq.grid(row=4, column=3, rowspan=2, sticky=tk.NSEW, padx=5, pady=5)
+
+        self.btn0.grid(row=5, column=0, columnspan=2, sticky=tk.NSEW, padx=5, pady=5)
+        self.btnDot.grid(row=5, column=2, sticky=tk.NSEW, padx=5, pady=5)
+
+        self.btn0.bind('<Button-1>', self.on_click)
+        self.btn1.bind('<Button-1>', self.on_click)
+        self.btn2.bind('<Button-1>', self.on_click)
+        self.btn3.bind('<Button-1>', self.on_click)
+        self.btn4.bind('<Button-1>', self.on_click)
+        self.btn5.bind('<Button-1>', self.on_click)
+        self.btn6.bind('<Button-1>', self.on_click)
+        self.btn7.bind('<Button-1>', self.on_click)
+        self.btn8.bind('<Button-1>', self.on_click)
+        self.btn9.bind('<Button-1>', self.on_click)
+
+        self.btnDot.bind('<Button-1>', self.on_click)
+        self.btnAdd.bind('<Button-1>', self.on_click)
+        self.btnSub.bind('<Button-1>', self.on_click)
+        self.btnMul.bind('<Button-1>', self.on_click)
+        self.btnDiv.bind('<Button-1>', self.on_click)
+
+        self.btnEq.bind('<Button-1>', self.on_click)
+        self.btnAC.bind('<Button-1>', self.on_click)
+        self.btnC.bind('<Button-1>', self.on_click)
+
+    def on_click(self, event):
+        btn_text = event.widget['text']
+        display_text = self.lblDisplay['text']
+
+
+        if btn_text in '0123456789':
+            if display_text == '0':
+                self.lblDisplay['text'] = btn_text
+            else:
+                self.lblDisplay['text'] = display_text + btn_text
+
+        if btn_text == '.':
+            if not '.' in display_text:
+                self.lblDisplay['text'] = display_text + '.'
+
+        if btn_text in ('+', '-', '÷', 'x'):
+            if  display_text[-1].isdigit():
+                self.lblDisplay['text'] = display_text + btn_text
+
+        if btn_text == '=':
+            display_text = display_text.replace('÷', '/')
+            display_text = display_text.replace('x', '*')
+
+            if not display_text[-1].isdigit():
+                self.lblDisplay['text'] = 'ERROR'
+            else:
+                try:
+                    self.lblDisplay['text'] = str(eval(display_text))
+                except ZeroDivisionError:
+                    self.lblDisplay['text'] = 'ERROR'
+
+        if btn_text == 'A':
+            self.lblDisplay['text'] = '0'
+
+        if btn_text == 'C':
+            if len(display_text) <= 1 or display_text == 'ERROR':
+                self.lblDisplay['text'] = '0'
+            else:
+                self.lblDisplay['text'] = display_text[:-1]
+
+
+    def run(self):
+        self.window.mainloop()
+
+
+
+calc = Calculator()
+calc.run()

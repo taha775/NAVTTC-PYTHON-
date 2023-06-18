@@ -1,0 +1,19 @@
+numpy
+
+focus on arrrys
+
+arrrays >> collection of elements of same daata type:
+arrays are multidimensional 
+
+
+1> more efficient ??/ b/c they created on c language atackend
+os in c lang
+
+device drivers in assembly languae
+
+				NUMPY
+
+WE CAN CREATE ARRAYS
+AND MULTIDIMENSIONLAL ARRAYS
+
+
